@@ -72,6 +72,15 @@ contract("Token Registry (Integration Tests)", async (ACCOUNTS) => {
             });
         });
     });
+    
+    describe("when given 'AMIS'", () => {
+            it("returns '9", async () => {
+                const numDecimals = await registry.getNumDecimalsFromSymbol.callAsync("AMIS");
+
+                expect(numDecimals.toNumber()).to.equal(9);
+            });
+        });
+    });
 
     describe("#getNumDecimalsByIndex", () => {
         describe("when given the index for the WETH token", () => {

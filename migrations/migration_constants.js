@@ -359,6 +359,12 @@ const TOKEN_LIST = [
         symbol: "ICN",
         decimals: 18,
     },
+    {
+        address: "0x949bed886c739f1a3273629b3320db0c5024c719",
+        name: "AMIS",
+        symbol: "AMIS",
+        decimals: 9,
+},
 ];
 
 module.exports = {

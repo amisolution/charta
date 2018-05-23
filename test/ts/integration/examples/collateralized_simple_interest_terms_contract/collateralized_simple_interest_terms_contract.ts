@@ -61,6 +61,9 @@ contract("Collateralized Simple Interest Terms Contract (Integration Tests)", as
     before(async () => {
         dummyTokenRegistryContract = await TokenRegistryContract.deployed(web3, TX_DEFAULTS);
 
+        const dummyAMISTokenAddress = await dummyTokenRegistryContract.getTokenAddressBySymbol.callAsync(
+            "AMIS",
+        );
         const dummyREPTokenAddress = await dummyTokenRegistryContract.getTokenAddressBySymbol.callAsync(
             "REP",
         );
@@ -68,6 +71,7 @@ contract("Collateralized Simple Interest Terms Contract (Integration Tests)", as
             "ZRX",
         );
 
+        dummyAMISToken = await DummyTokenContract.at(dummyAMISTokenAddress, web3, TX_DEFAULTS);
         dummyREPToken = await DummyTokenContract.at(dummyREPTokenAddress, web3, TX_DEFAULTS);
         dummyZRXToken = await DummyTokenContract.at(dummyZRXTokenAddress, web3, TX_DEFAULTS);
 
